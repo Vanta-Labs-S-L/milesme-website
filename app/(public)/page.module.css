@@ -1,0 +1,26 @@
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global scroll padding to account for fixed nav */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Fade-in animation for sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade-in to sections with class */
+.fadeIn {
+  animation: fadeInUp 0.8s ease-out forwards;
+}

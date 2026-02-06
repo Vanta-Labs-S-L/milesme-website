@@ -1,0 +1,21 @@
+.scrollReveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity var(--transition-duration--entrance) var(--transition-timing--smooth),
+    transform var(--transition-duration--entrance) var(--transition-timing--smooth);
+}
+
+.scrollReveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .scrollReveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,130 @@
+.howItWorks {
+  padding: var(--spacing-5xl) var(--spacing-3md);
+  background-color: var(--color--cream-500);
+}
+
+.container {
+  max-width: var(--container--large);
+  margin: 0 auto;
+}
+
+.heading {
+  font-family: var(--font-family--display);
+  font-size: var(--font-size--h1);
+  letter-spacing: var(--letter-spacing--normal);
+  line-height: var(--line-height--heading);
+  text-align: center;
+  margin-bottom: var(--spacing-4xl);
+  color: var(--color--text-primary);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5xl);
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.step:nth-child(even) {
+  direction: rtl;
+}
+
+.step:nth-child(even) .stepContent {
+  direction: ltr;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.stepNumber {
+  font-family: var(--font-family--display);
+  font-size: var(--font-size--h1);
+  letter-spacing: var(--letter-spacing--widest);
+  color: var(--color--amber-500);
+  line-height: 1;
+}
+
+.stepTitle {
+  font-family: var(--font-family--display);
+  font-size: var(--font-size--h3);
+  letter-spacing: var(--letter-spacing--wide);
+  line-height: var(--line-height--heading);
+  color: var(--color--text-primary);
+  margin: 0;
+}
+
+.stepDescription {
+  font-family: var(--font-family--body);
+  font-size: var(--font-size--body-large);
+  font-weight: var(--font-weight--regular);
+  line-height: var(--line-height--base);
+  color: var(--color--text-secondary);
+  margin: 0;
+}
+
+.stepImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--border-radius--xl);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(45, 47, 38, 0.12);
+}
+
+.stepImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Mobile Styles */
+@media (max-width: 968px) {
+  .howItWorks {
+    padding: var(--spacing-4xl) var(--spacing-md);
+  }
+
+  .heading {
+    font-size: var(--font-size--h2);
+    margin-bottom: var(--spacing-3xl);
+  }
+
+  .steps {
+    gap: var(--spacing-4xl);
+  }
+
+  .step {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3md);
+    direction: ltr;
+  }
+
+  .step:nth-child(even) {
+    direction: ltr;
+  }
+
+  .stepNumber {
+    font-size: var(--font-size--h2);
+  }
+
+  .stepTitle {
+    font-size: var(--font-size--h4);
+  }
+
+  .stepDescription {
+    font-size: var(--font-size--body);
+  }
+
+  .stepImageContainer {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

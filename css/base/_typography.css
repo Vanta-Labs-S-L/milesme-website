@@ -1,0 +1,133 @@
+html {
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  color: var(--color--text-primary);
+  font-family: var(--font-family--body);
+  font-size: var(--font-size--body);
+  font-weight: var(--font-weight--regular);
+  line-height: var(--line-height--base);
+  background-color: var(--color--background-base);
+}
+
+/* Elevated Typography - Libre Franklin */
+:where(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--font-family--display);
+  font-weight: var(--font-weight--black);
+  line-height: var(--line-height--heading);
+  margin: 0;
+  color: var(--color--text-primary);
+  letter-spacing: var(--letter-spacing--tight);
+}
+
+/* Hero Headline - 56px, Black weight */
+h1 {
+  font-size: var(--font-size--h1);
+  line-height: var(--line-height--hero);
+  text-wrap: balance;
+}
+
+/* Section Headings - 48px, Black weight */
+h2 {
+  font-size: var(--font-size--h2);
+}
+
+/* Subsection Headings */
+h3 {
+  font-size: var(--font-size--h3);
+  font-weight: var(--font-weight--bold);
+}
+
+h4 {
+  font-size: var(--font-size--h4);
+  font-weight: var(--font-weight--bold);
+}
+
+h5 {
+  font-size: var(--font-size--h5);
+  font-weight: var(--font-weight--semibold);
+}
+
+/* Overline labels - uppercase, letter-spaced */
+.overline {
+  font-size: var(--font-size--overline);
+  font-weight: var(--font-weight--semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing--wider);
+  color: var(--color--dark-400);
+}
+
+/* Body Typography - Comfortable reading */
+p,
+.body {
+  font-family: var(--font-family--body);
+  font-size: var(--font-size--body);
+  font-weight: var(--font-weight--regular);
+  line-height: var(--line-height--base);
+  color: var(--color--dark-600);
+  margin: 0;
+}
+
+.body-large {
+  font-size: var(--font-size--body-large);
+}
+
+.body-medium {
+  font-weight: var(--font-weight--medium);
+}
+
+.body-bold,
+strong {
+  font-weight: var(--font-weight--semibold);
+}
+
+.text-small,
+.caption {
+  font-size: var(--font-size--caption);
+  color: var(--color--dark-400);
+}
+
+/* Accent text color for emphasis */
+.text-accent {
+  color: var(--color--amber-500);
+}
+
+a {
+  color: var(--color--text-accent);
+  transition: var(--transition-duration--base) color var(--transition-timing--base);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color--text-accent-bold);
+  }
+}
+
+label {
+  font-size: var(--font-size--ui);
+  font-weight: var(--font-weight--bold);
+  text-align: start;
+}
+
+input {
+  font-size: var(--font-size--body);
+}
+
+legend {
+  font-size: var(--font-size--body);
+  font-weight: var(--font-weight--bold);
+}
+
+hr {
+  border: var(--border--light);
+  width: 100%;
+}
+
+table {
+  font-variant-numeric: tabular-nums lining-nums slashed-zero;
+}
+
+code {
+  font-variant-numeric: slashed-zero;
+}

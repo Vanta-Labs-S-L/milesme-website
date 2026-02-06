@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MilesMe Website
 
-## Getting Started
+A lightweight Next.js application with Supabase authentication and Roux CSS styling.
 
-First, run the development server:
+## Stack
+
+- **Next.js 14+** with App Router
+- **TypeScript**
+- **Supabase** for authentication and database
+- **Roux CSS** by Thoughtbot for base styling
+- **CSS Modules** for component-scoped styles
+
+## Project Structure
+
+```
+app/
+├── (public)/          # Public pages
+│   ├── page.tsx       # Landing page
+│   ├── privacy/       # Privacy policy
+│   └── terms/         # Terms of service
+├── (dashboard)/       # Protected admin area
+│   └── dashboard/
+├── login/             # Admin login page
+└── layout.tsx         # Root layout
+components/            # Shared components
+lib/
+└── supabase/          # Supabase utilities
+    ├── client.ts      # Client-side helper
+    ├── server.ts      # Server-side helper
+    └── middleware.ts  # Middleware helper
+css/                   # Roux CSS base styles
+```
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Configure Supabase
+
+1. Create a Supabase project at [supabase.com](https://supabase.com)
+2. Copy your project URL and anon key
+3. Update `.env.local` with your credentials:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+### 3. Create Admin User
+
+In your Supabase project dashboard:
+
+1. Go to Authentication → Users
+2. Create a new user with email and password
+3. This user will have admin access to the dashboard
+
+### 4. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` - Landing page
+- `/privacy` - Privacy policy
+- `/terms` - Terms of service
+- `/login` - Admin login (email/password)
+- `/dashboard` - Protected admin dashboard
 
-## Learn More
+## Authentication Flow
 
-To learn more about Next.js, take a look at the following resources:
+- Admin logs in at `/login` with email/password
+- Middleware protects `/dashboard` routes
+- Server-side session handling using `@supabase/ssr`
+- Unauthenticated users are redirected to `/login`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Styling
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Roux CSS** provides base reset and typography
+- **CSS Modules** for component-specific styles
+- No additional CSS tooling or frameworks
 
-## Deploy on Vercel
+## Development
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+npm run lint     # Run ESLint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Notes
+
+- Keep dependencies minimal
+- No placeholder content or lorem ipsum
+- Clean separation of concerns with route groups
+- Server and client Supabase utilities are separated

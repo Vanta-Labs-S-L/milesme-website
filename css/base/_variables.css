@@ -1,0 +1,188 @@
+:root {
+  /* Milesme Brand Colors - From Branding Guidelines */
+
+  /* Amber/Orange Scale */
+  --color--amber-500: #F3A72A;
+  --color--orange-400: #E8762C;
+  --color--orange-500: #E8762C;
+
+  /* Cream/Background Scale */
+  --color--cream-50: #FAF3E8;  /* Elevated surfaces, cards */
+  --color--cream-500: #F5E6CE; /* Primary background */
+  --color--cream-600: #EDD9B8;
+
+  /* Green Scale */
+  --color--green-500: #5DA777;
+
+  /* Dark Scale */
+  --color--dark-200: #666A60;
+  --color--dark-400: #7A7A6C;  /* Tertiary text, hints */
+  --color--dark-500: #2D2F26;  /* Primary text, icons, nav */
+  --color--dark-600: #4A4C42;  /* Secondary text */
+
+  /* Base Colors */
+  --color--black-500: #1E201A;
+  --color--white-500: #ffffff;
+
+  /* Brand Color Mapping */
+  --color--primary-base: var(--color--amber-500);
+  --color--primary-dark: var(--color--orange-500);
+  --color--primary-light: var(--color--amber-500);
+
+  --color--accent-base: var(--color--orange-500);
+  --color--accent-dark: var(--color--orange-500);
+  --color--accent-light: var(--color--amber-500);
+
+  /* Backgrounds - Milesme uses cream as primary background */
+  --color--background-base: var(--color--cream-500);
+  --color--background-secondary: var(--color--cream-50);
+  --color--background-inverse: var(--color--dark-500);
+  --color--background-accent: var(--color--amber-500);
+  --color--background-accent-bold: var(--color--orange-500);
+  --color--background-accent-subtle: #EFCB95;
+  --color--background-success: var(--color--green-500);
+
+  /* Text Colors */
+  --color--text-primary: var(--color--dark-500);
+  --color--text-secondary: var(--color--dark-600);
+  --color--text-tertiary: var(--color--dark-400);
+  --color--text-inverse: var(--color--cream-50);
+  --color--text-accent: var(--color--amber-500);
+  --color--text-accent-bold: var(--color--orange-500);
+  --color--text-success: var(--color--green-500);
+
+  /* Interactive Colors */
+  --color--interactive-default: var(--color--amber-500);
+  --color--interactive-hover: #EB944E;
+  --color--interactive-active: var(--color--orange-500);
+  --color--interactive-disabled: var(--color--dark-200);
+
+  /* Border Colors */
+  --color--border-default: var(--color--dark-200);
+  --color--border-subtle: var(--color--cream-600);
+  --color--border-accent: var(--color--amber-500);
+  --color--border-accent-bold: var(--color--orange-500);
+
+  /* UI State Colors */
+  --color--ui-success-base: var(--color--green-500);
+  --color--ui-danger-base: #CC5541;
+  --color--ui-danger-light: #FCC;
+
+  /* Typography - Based on Milesme Branding Guidelines */
+
+  /* Font Families */
+  --font-family--display: "Libre Franklin", system-ui, -apple-system, sans-serif;
+  --font-family--body: "Libre Franklin", system-ui, -apple-system, sans-serif;
+
+  /* Font Sizes - Elevated design scale */
+  --font-size--overline: 0.8125rem;  /* 13px - Overlines */
+  --font-size--caption: 0.8125rem;   /* 13px - Captions */
+  --font-size--2xs: 0.75rem;         /* 12px - Overlines alt */
+  --font-size--xs: 0.875rem;         /* 14px - Small text */
+  --font-size--sm: 1.0625rem;        /* 17px - Body text */
+  --font-size--md: 1.125rem;         /* 18px - Body large */
+  --font-size--lg: 1.5rem;           /* 24px */
+  --font-size--xl: 2rem;             /* 32px */
+  --font-size--2xl: 2.5rem;          /* 40px - Section headings (mobile) */
+  --font-size--3xl: 3rem;            /* 48px - Section headings */
+  --font-size--4xl: 3.5rem;          /* 56px - Hero headline */
+
+  /* Semantic Font Sizes */
+  --font-size--body: var(--font-size--sm);        /* 17px */
+  --font-size--body-large: var(--font-size--md);  /* 18px */
+  --font-size--small: var(--font-size--caption);  /* 13px */
+  --font-size--ui: 0.9375rem;                     /* 15px - Buttons */
+  --font-size--h5: var(--font-size--lg);
+  --font-size--h4: var(--font-size--xl);
+  --font-size--h3: var(--font-size--2xl);
+  --font-size--h2: var(--font-size--3xl);         /* 48px - Section headings */
+  --font-size--h1: var(--font-size--4xl);         /* 56px - Hero */
+  --font-size--display: var(--font-size--4xl);
+
+  /* Font Weights */
+  --font-weight--regular: 400;
+  --font-weight--medium: 500;
+  --font-weight--semibold: 600;
+  --font-weight--bold: 700;
+  --font-weight--black: 900;
+
+  /* Line Heights */
+  --line-height--base: 1.6;    /* Body text */
+  --line-height--tight: 1.2;   /* UI elements */
+  --line-height--heading: 1.1; /* Headings */
+  --line-height--hero: 1.15;   /* Hero headline */
+
+  /* Letter Spacing */
+  --letter-spacing--tight: -0.015em;  /* Headlines */
+  --letter-spacing--normal: 0;
+  --letter-spacing--wide: 0.015em;    /* Overlines */
+  --letter-spacing--wider: 0.02em;    /* Overlines uppercase */
+
+  /* Border Radius - Warm, generous corners */
+  --border-radius--sm: 0.5rem;      /* 8px */
+  --border-radius--md: 0.75rem;     /* 12px */
+  --border-radius--lg: 1rem;        /* 16px - Cards */
+  --border-radius--xl: 1.25rem;     /* 20px - Large cards */
+  --border-radius--pill: 100px;
+  --border-radius--circle: 100%;
+
+  /* Border Widths */
+  --border-width--thin: 1px;
+  --border-width--base: 2px;
+  --border-width--thick: 3px;
+
+  /* Border Styles */
+  --border--default: var(--border-width--thin) solid var(--color--border-default);
+  --border--subtle: var(--border-width--thin) solid rgba(45, 47, 38, 0.06);
+  --border--accent: var(--border-width--base) solid var(--color--border-accent);
+  --border--accent-bold: var(--border-width--thick) solid var(--color--border-accent-bold);
+
+  /* Container Widths */
+  --container--sm: 343px;   /* iPhone width from grid */
+  --container--md: 375px;
+  --container--base: 50rem;
+  --container--large: 85rem;
+
+  /* Spacing System - Generous, breathable spacing */
+  --spacing-xs: 0.25rem;     /* 4px */
+  --spacing-sm: 0.5rem;      /* 8px */
+  --spacing-2sm: 0.75rem;    /* 12px */
+  --spacing-md: 1rem;        /* 16px - base unit */
+  --spacing-2md: 1.25rem;    /* 20px */
+  --spacing-3md: 1.75rem;    /* 28px - Card padding */
+  --spacing-lg: 2rem;        /* 32px */
+  --spacing-xl: 2.25rem;     /* 36px - Card padding large */
+  --spacing-2xl: 3rem;       /* 48px */
+  --spacing-3xl: 5rem;       /* 80px - Section padding mobile */
+  --spacing-4xl: 6.25rem;    /* 100px */
+  --spacing-5xl: 7.5rem;     /* 120px - Section padding desktop */
+  --spacing-6xl: 10rem;      /* 160px - Section padding large */
+
+  /* Legacy spacing (for compatibility) */
+  --space--xx-small: var(--spacing-xs);
+  --space--x-small: var(--spacing-sm);
+  --space--small: var(--spacing-2sm);
+  --space--base: var(--spacing-md);
+  --space--medium: var(--spacing-3md);
+  --space--large: var(--spacing-lg);
+  --space--x-large: var(--spacing-2xl);
+  --space--xx-large: var(--spacing-3xl);
+  
+  /* Transitions - Slow, intentional */
+  --transition-duration--fast: 200ms;
+  --transition-duration--base: 400ms;
+  --transition-duration--slow: 600ms;
+  --transition-duration--entrance: 800ms;
+  --transition-timing--base: ease-out;
+  --transition-timing--smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Shadows - Warm, subtle */
+  --shadow--card: 0 4px 24px rgba(45, 47, 38, 0.06);
+  --shadow--card-hover: 0 8px 32px rgba(45, 47, 38, 0.08);
+  
+  --z-index--basement: -999999;
+  --z-index--base: 1;
+  --z-index--layout: 1000;
+  --z-index--modal: 4000;
+  --z-index--ceiling: 999999;
+}

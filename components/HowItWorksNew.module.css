@@ -1,0 +1,437 @@
+/* Section: tall to create scroll room */
+.section {
+  position: relative;
+  height: 300vh;
+  background-color: var(--color--black-500);
+  color: var(--color--cream-50);
+}
+
+/* Sticky wrapper: pins visible content to viewport */
+.stickyWrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  padding: var(--spacing-5xl) var(--spacing-3md) 0;
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--container--large);
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Two-column grid for steps + phone */
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+/* ========================================
+   LEFT COLUMN
+   ======================================== */
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.overline {
+  display: inline-block;
+  font-size: var(--font-size--overline);
+  font-weight: var(--font-weight--semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing--wider);
+  color: rgba(250, 243, 232, 0.5);
+  margin-bottom: var(--spacing-md);
+}
+
+.heading {
+  font-size: var(--font-size--h2);
+  font-weight: var(--font-weight--black);
+  line-height: var(--line-height--heading);
+  letter-spacing: var(--letter-spacing--tight);
+  color: var(--color--cream-50);
+  max-width: 700px;
+}
+
+.accent {
+  color: var(--color--amber-500);
+}
+
+/* Steps: stacked, crossfade in/out */
+.stepsWrapper {
+  position: relative;
+  min-height: 240px;
+}
+
+.stepContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2sm);
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--transition-duration--slow) var(--transition-timing--smooth),
+    transform var(--transition-duration--slow) var(--transition-timing--smooth);
+  pointer-events: none;
+}
+
+/* Active: visible, in position */
+.stepContent.stepActive {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Exited: slid up and faded out */
+.stepContent.stepExited {
+  opacity: 0;
+  transform: translateY(-24px);
+}
+
+/* Step number: display-level, branded */
+.stepNumber {
+  font-size: 6rem;
+  font-weight: var(--font-weight--black);
+  color: var(--color--amber-500);
+  line-height: 1;
+  letter-spacing: var(--letter-spacing--tight);
+  opacity: 0.45;
+}
+
+/* Step title */
+.stepTitle {
+  font-size: var(--font-size--h3);
+  font-weight: var(--font-weight--bold);
+  line-height: var(--line-height--tight);
+  color: var(--color--cream-50);
+  margin: 0;
+}
+
+/* Step description */
+.stepDescription {
+  font-size: var(--font-size--body);
+  line-height: var(--line-height--base);
+  color: rgba(250, 243, 232, 0.7);
+  max-width: 420px;
+  margin: 0;
+}
+
+/* Progress bar with counter */
+.progressBar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.progressCount,
+.progressTotal {
+  font-size: var(--font-size--caption);
+  font-weight: var(--font-weight--semibold);
+  color: rgba(250, 243, 232, 0.4);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.5em;
+}
+
+.progressCount {
+  color: var(--color--cream-50);
+}
+
+.progressTrack {
+  flex: 1;
+  height: 2px;
+  background: rgba(250, 243, 232, 0.15);
+  border-radius: 1px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--color--amber-500);
+  border-radius: 1px;
+  transition: width var(--transition-duration--slow) var(--transition-timing--smooth);
+}
+
+/* ========================================
+   RIGHT COLUMN: PHONE
+   ======================================== */
+.phoneColumn {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Subtle glow behind phone */
+.phoneGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(243, 167, 42, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Phone frame: viewport-relative, keeps iPhone ratio */
+.phoneFrame {
+  position: relative;
+  height: 72vh;
+  max-height: 680px;
+  aspect-ratio: 390 / 844;
+  border-radius: 36px;
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  background: #000;
+  z-index: 1;
+}
+
+.phoneScreen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Screen Overlays */
+.screenOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity var(--transition-duration--slow) var(--transition-timing--smooth);
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.screenOverlay.overlayActive {
+  opacity: 1;
+}
+
+/* Overlay cards */
+.overlayCardTop {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  right: 10%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--border-radius--md);
+  padding: var(--spacing-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.overlayCardBottom {
+  position: absolute;
+  top: 52%;
+  left: 10%;
+  right: 10%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--border-radius--md);
+  padding: var(--spacing-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.overlayCardCenter {
+  position: absolute;
+  bottom: 15%;
+  left: 15%;
+  right: 15%;
+}
+
+.overlayCardTitle {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight--semibold);
+  color: var(--color--dark-500);
+  margin-bottom: 4px;
+}
+
+.overlayCardMeta {
+  font-size: 0.75rem;
+  color: var(--color--dark-400);
+}
+
+.overlayTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.overlayTag {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(243, 167, 42, 0.15);
+  border-radius: var(--border-radius--pill);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight--medium);
+  color: var(--color--dark-500);
+}
+
+.overlayGoButton {
+  background: var(--color--amber-500);
+  color: var(--color--dark-500);
+  font-size: 1rem;
+  font-weight: var(--font-weight--semibold);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--border-radius--pill);
+  text-align: center;
+}
+
+/* ========================================
+   RESPONSIVE: TABLET
+   ======================================== */
+@media (max-width: 968px) {
+  .section {
+    height: 250vh;
+  }
+
+  .stickyWrapper {
+    padding: 0 var(--spacing-md);
+  }
+
+  .heading {
+    font-size: var(--font-size--3xl);
+  }
+
+  .stepNumber {
+    font-size: 4.5rem;
+  }
+
+  .stepTitle {
+    font-size: var(--font-size--xl);
+  }
+
+  .stepDescription {
+    font-size: var(--font-size--xs);
+  }
+
+  .phoneFrame {
+    height: 60vh;
+    max-height: 560px;
+    border-radius: 30px;
+  }
+
+  .phoneGlow {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE: MOBILE — no pinning, stacked
+   ======================================== */
+@media (max-width: 768px) {
+  .section {
+    height: auto;
+    padding: var(--spacing-4xl) var(--spacing-md);
+  }
+
+  .stickyWrapper {
+    position: relative;
+    top: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  .columns {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3xl);
+  }
+
+  .phoneColumn {
+    order: -1;
+  }
+
+  .phoneFrame {
+    height: auto;
+    max-height: none;
+    width: 220px;
+    aspect-ratio: 390 / 844;
+    border-radius: 28px;
+  }
+
+  .phoneGlow {
+    display: none;
+  }
+
+  .stepsWrapper {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3xl);
+  }
+
+  .stepContent {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+  }
+
+  .stepContent.stepExited {
+    opacity: 1;
+    transform: none;
+  }
+
+  .stepNumber {
+    font-size: 3.5rem;
+  }
+
+  .screenOverlay {
+    display: none;
+  }
+
+  .progressBar {
+    display: none;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .stepContent {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .stepContent.stepExited {
+    opacity: 1;
+    transform: none;
+  }
+
+  .screenOverlay {
+    transition: none;
+  }
+
+  .progressFill {
+    transition: none;
+  }
+}

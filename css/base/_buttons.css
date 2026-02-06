@@ -1,0 +1,107 @@
+/* Elevated Button Styles - Substantial, intentional */
+
+.button,
+button:not([type="submit"]):not([type="button"]):not([type="reset"]) {
+  align-items: center;
+  border: var(--border-width--thin) solid transparent;
+  border-radius: var(--border-radius--pill);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family--body);
+  font-weight: var(--font-weight--semibold);
+  font-size: var(--font-size--ui);
+  gap: var(--spacing-sm);
+  justify-content: center;
+  line-height: var(--line-height--tight);
+  padding: 0.875rem 2rem;  /* 14px 32px */
+  text-align: center;
+  text-decoration: none;
+  transition-duration: var(--transition-duration--base);
+  transition-property: background-color, color, border-color, transform;
+  transition-timing-function: var(--transition-timing--base);
+
+  &:focus-visible {
+    outline: var(--border-width--thick) solid var(--color--interactive-default);
+    outline-offset: 3px;
+  }
+}
+
+/* Primary Button - Amber background, dark text, subtle lift on hover */
+.button--primary,
+.button {
+  background-color: var(--color--background-accent);
+  color: var(--color--text-primary);
+
+  &:hover {
+    background-color: var(--color--interactive-active);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Secondary Button - Dark border, fills on hover */
+.button--secondary {
+  background-color: transparent;
+  border-color: var(--color--dark-500);
+  color: var(--color--dark-500);
+
+  &:hover {
+    background-color: rgba(45, 47, 38, 0.06);
+  }
+
+  &:active {
+    background-color: rgba(45, 47, 38, 0.1);
+  }
+}
+
+/* Tertiary Button - Text only */
+.button--tertiary {
+  background-color: transparent;
+  color: var(--color--text-accent-bold);
+  padding: var(--spacing-sm) var(--spacing-md);
+
+  &:hover {
+    color: var(--color--interactive-hover);
+  }
+
+  &:active {
+    color: var(--color--interactive-active);
+  }
+}
+
+/* Button on Dark Background */
+.button--inverse {
+  background-color: var(--color--background-accent);
+  color: var(--color--text-primary);
+
+  &:hover {
+    background-color: var(--color--interactive-hover);
+  }
+}
+
+/* Button Sizes */
+.button--sm {
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size--small);
+}
+
+.button--lg {
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-size--body-large);
+}
+
+/* Disabled State */
+.button:disabled,
+.button[disabled] {
+  background-color: var(--color--interactive-disabled);
+  color: var(--color--text-tertiary);
+  cursor: not-allowed;
+  opacity: 0.6;
+
+  &:hover {
+    background-color: var(--color--interactive-disabled);
+  }
+}

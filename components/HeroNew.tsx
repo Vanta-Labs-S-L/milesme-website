@@ -1,8 +1,11 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import styles from "./HeroNew.module.css";
 
 export function HeroNew() {
+  const collageRef = useRef<HTMLDivElement>(null);
+
   const scrollToWaitlist = () => {
     const element = document.getElementById("waitlist");
     if (element) {
@@ -10,93 +13,97 @@ export function HeroNew() {
     }
   };
 
-  const scrollToHowItWorks = () => {
-    const element = document.getElementById("how-it-works");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // Parallax on scroll
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const handleScroll = () => {
+      const collage = collageRef.current;
+      if (!collage) return;
+
+      const scrollY = window.scrollY;
+      const cards = collage.children as HTMLCollectionOf<HTMLElement>;
+
+      // Each card moves at a different speed for depth
+      if (cards[0]) cards[0].style.transform = `rotate(-3deg) translateY(${scrollY * -0.04}px)`;
+      if (cards[1]) cards[1].style.transform = `rotate(2deg) translateY(${scrollY * -0.08}px)`;
+      if (cards[2]) cards[2].style.transform = `rotate(-1.5deg) translateY(${scrollY * -0.12}px)`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section className={styles.hero}>
       <div className={styles.container}>
-        {/* Left Column - Content */}
+        {/* Left — Copy */}
         <div className={styles.content}>
-          <span className={styles.overlinePill}>Your next adventure awaits</span>
-
           <h1 className={styles.headline}>
-            Routes you can <span className={styles.accent}>trust.</span>
+            Made for your next{" "}
+            <span className={styles.accent}>route.</span>
           </h1>
 
-          <p className={styles.subheadline}>
-            Every run should feel like an adventure. Find curated routes that
-            match your mood, distance, and terrain — effortlessly.
+          <p className={styles.tagline}>
+            Loop routes tailored to your distance, terrain, and preferences.
           </p>
 
-          <div className={styles.buttonGroup}>
+          <div className={styles.ctaGroup}>
             <button
               onClick={scrollToWaitlist}
-              className={`button button--primary ${styles.primaryButton}`}
+              className={styles.ctaButton}
             >
-              Join Waitlist &rarr;
+              Join Waitlist
             </button>
             <button
-              onClick={scrollToHowItWorks}
-              className={`button button--secondary ${styles.secondaryButton}`}
+              onClick={() => {
+                const el = document.getElementById("how-it-works");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
+              className={styles.ctaSecondary}
             >
-              See How It Works
+              How It Works
             </button>
-          </div>
-
-          <span className={styles.trustText}>
-            Join 5,000+ active explorers
-          </span>
-
-          <div className={styles.statsRow}>
-            <div className={styles.stat}>
-              <span className={styles.statValue}>10K+</span>
-              <span className={styles.statLabel}>Routes</span>
-            </div>
-            <div className={styles.statDivider} />
-            <div className={styles.stat}>
-              <span className={styles.statValue}>50+</span>
-              <span className={styles.statLabel}>Cities</span>
-            </div>
-            <div className={styles.statDivider} />
-            <div className={styles.stat}>
-              <span className={styles.statValue}>4.9</span>
-              <span className={styles.statLabel}>Rating</span>
-            </div>
           </div>
         </div>
 
-        {/* Right Column - Overlapping Images */}
-        <div className={styles.imageComposition}>
-          <div className={styles.imagePrimary}>
-            <img
-              src="/images/runner on a street.jpg"
-              alt="Runner on a scenic street route"
-              className={styles.heroImage}
-            />
-          </div>
-          <div className={styles.imageSecondary}>
+        {/* Right — Floating Collage */}
+        <div className={styles.collage} ref={collageRef}>
+          {/* Card 1: largest, back-left */}
+          <div className={styles.card1}>
             <img
               src="/images/runner in between trees.jpg"
-              alt="Runner on a forest trail"
-              className={styles.heroImage}
+              alt="Scenic trail runner"
+              className={styles.cardImage}
             />
+            <span className={styles.tagPill} style={{ bottom: 20, left: 20 }}>
+              Scenic
+            </span>
           </div>
 
-          <div className={styles.floatingBadge}>
-            <div className={styles.badgeIcon}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="var(--color--green-500)"/>
-              </svg>
-            </div>
-            <div className={styles.badgeText}>
-              <div className={styles.badgeTitle}>Top Rated</div>
-              <div className={styles.badgeSub}>Curated Trails</div>
-            </div>
+          {/* Card 2: medium, back-right */}
+          <div className={styles.card2}>
+            <img
+              src="/images/runner on a street.jpg"
+              alt="Urban runner"
+              className={styles.cardImage}
+            />
+            <span className={styles.tagPill} style={{ top: 20, right: 20 }}>
+              Urban
+            </span>
+          </div>
+
+          {/* Card 3: smallest, front-center */}
+          <div className={styles.card3}>
+            <img
+              src="/images/runner on bushy trail.jpg"
+              alt="Nature trail runner"
+              className={styles.cardImage}
+            />
+            <span className={styles.tagPill} style={{ bottom: 20, right: 20 }}>
+              Trail
+            </span>
           </div>
         </div>
       </div>

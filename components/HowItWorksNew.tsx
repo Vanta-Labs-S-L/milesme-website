@@ -8,19 +8,22 @@ const steps = [
     number: "01",
     title: "Set Your Preferences",
     description:
-      "Distance, terrain, mood. Tell us what kind of run you're looking for today.",
+      "Pick your distance, choose what terrain feels right today. We\u2019ll take it from there.",
+    screen: "/images/Generate route.png",
   },
   {
     number: "02",
     title: "Get Curated Routes",
     description:
-      "Instantly see routes that match — verified by real runners, complete with photos and ratings.",
+      "Routes show up instantly, built around your preferences.",
+    screen: "/images/curated routes.png",
   },
   {
     number: "03",
-    title: "Run & Discover",
+    title: "Go & Discover",
     description:
-      "Start with confidence. Navigate turn-by-turn, save favorites, share your best finds.",
+      "Head out with confidence. Turn-by-turn navigation keeps you on track \u2014 anything you love, you can save.",
+    screen: "/images/go.png",
   },
 ];
 
@@ -66,8 +69,8 @@ export function HowItWorksNew() {
           <div className={styles.header}>
             <span className={styles.overline}>How It Works</span>
             <h2 className={styles.heading}>
-              From curious to confident in{" "}
-              <span className={styles.accent}>seconds.</span>
+              Built around how you actually like to{" "}
+              <span className={styles.accent}>walk or run.</span>
             </h2>
           </div>
 
@@ -110,60 +113,40 @@ export function HowItWorksNew() {
           <div className={styles.phoneColumn}>
             <div className={styles.phoneGlow} />
             <div className={styles.phoneFrame}>
-              <img
-                src="/images/Test Mockup 17.png"
-                alt="MilesMe app"
-                className={styles.phoneScreen}
-              />
-
-              {/* Step 1: Preferences overlay */}
-              <div
-                className={`${styles.screenOverlay} ${
-                  activeStep === 0 ? styles.overlayActive : ""
-                }`}
-              >
-                <div className={styles.overlayCardTop}>
-                  <div className={styles.overlayCardTitle}>Set Preferences</div>
-                  <div className={styles.overlayTags}>
-                    <span className={styles.overlayTag}>5-10 km</span>
-                    <span className={styles.overlayTag}>Trail</span>
-                    <span className={styles.overlayTag}>Scenic</span>
-                  </div>
+              {steps.map((step, index) => (
+                <img
+                  key={index}
+                  src={step.screen}
+                  alt={step.title}
+                  className={`${styles.phoneScreen} ${
+                    activeStep === index ? styles.screenActive : ""
+                  }`}
+                />
+              ))}
+            {/* Store badges */}
+            <div className={styles.storeBadges}>
+              <div className={styles.storeBadge}>
+                <svg className={styles.storeIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="#000000"/>
+                </svg>
+                <div className={styles.storeBadgeText}>
+                  <span className={styles.storeBadgeLabel}>Coming soon on</span>
+                  <span className={styles.storeBadgeName}>App Store</span>
                 </div>
               </div>
-
-              {/* Step 2: Routes overlay */}
-              <div
-                className={`${styles.screenOverlay} ${
-                  activeStep === 1 ? styles.overlayActive : ""
-                }`}
-              >
-                <div className={styles.overlayCardTop}>
-                  <div className={styles.overlayCardTitle}>
-                    Golden Gate Loop
-                  </div>
-                  <div className={styles.overlayCardMeta}>
-                    5.2 mi &middot; Moderate &middot; 4.9&#9733;
-                  </div>
-                </div>
-                <div className={styles.overlayCardBottom}>
-                  <div className={styles.overlayCardTitle}>Sunset Trail</div>
-                  <div className={styles.overlayCardMeta}>
-                    3.8 mi &middot; Easy &middot; 4.7&#9733;
-                  </div>
+              <div className={styles.storeBadge}>
+                <svg className={styles.storeIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92z" fill="#4285F4"/>
+                  <path d="M17.556 8.223l-3.764 3.764 3.764 3.764 4.251-2.42a1.004 1.004 0 000-1.748l-4.251-2.36z" fill="#FBBC04"/>
+                  <path d="M3.609 1.814L13.792 12l3.764-3.777L6.083.462a1.21 1.21 0 00-2.474 1.352z" fill="#34A853"/>
+                  <path d="M13.792 12L3.61 22.186a1.21 1.21 0 002.474 1.352l11.473-7.761L13.792 12z" fill="#EA4335"/>
+                </svg>
+                <div className={styles.storeBadgeText}>
+                  <span className={styles.storeBadgeLabel}>Coming soon on</span>
+                  <span className={styles.storeBadgeName}>Google Play</span>
                 </div>
               </div>
-
-              {/* Step 3: Go overlay */}
-              <div
-                className={`${styles.screenOverlay} ${
-                  activeStep === 2 ? styles.overlayActive : ""
-                }`}
-              >
-                <div className={styles.overlayCardCenter}>
-                  <div className={styles.overlayGoButton}>Start Run</div>
-                </div>
-              </div>
+            </div>
             </div>
           </div>
           </div>

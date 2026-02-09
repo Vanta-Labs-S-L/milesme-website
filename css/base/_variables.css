@@ -3,6 +3,7 @@
 
   /* Amber/Orange Scale */
   --color--amber-500: #F3A72A;
+  --color--amber-600: #D48E1A;
   --color--orange-400: #E8762C;
   --color--orange-500: #E8762C;
 
@@ -19,6 +20,7 @@
   --color--dark-400: #7A7A6C;  /* Tertiary text, hints */
   --color--dark-500: #2D2F26;  /* Primary text, icons, nav */
   --color--dark-600: #4A4C42;  /* Secondary text */
+  --color--dark-800: #151611;  /* Deep dark sections */
 
   /* Base Colors */
   --color--black-500: #1E201A;

@@ -5,26 +5,32 @@ export function FeaturesNew() {
     <section id="features" className={styles.features}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <span className={styles.overline}>What Makes Us Different</span>
+          <span className={styles.overline}>Why MilesMe</span>
           <h2 className={styles.heading}>
-            Built for runners who <span className={styles.accent}>explore.</span>
+            Getting outside should be the{" "}
+            <span className={styles.accent}>easy part.</span>
           </h2>
         </div>
 
         <div className={styles.grid}>
-          {/* Large feature - spans full width */}
+          {/* Large feature - editorial image card */}
           <div className={styles.featureLarge}>
-            <div className={styles.featureImage}>
-              <img
-                src="/images/runner in between trees.jpg"
-                alt="Curated by real runners"
-                className={styles.image}
-              />
-            </div>
-            <div className={styles.featureContent}>
-              <h3 className={styles.featureTitle}>Curated by Runners</h3>
-              <p className={styles.featureDescription}>
-                Every route is verified, photographed, and rated by real runners. No more guessing if that trail is worth it—see exactly what to expect before you go.
+            <img
+              src="/images/green area runner.png"
+              alt="Curated by real runners"
+              className={styles.imageLarge}
+            />
+            <div className={styles.featureLargeOverlay}>
+              <span className={styles.featureBadge}>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M5.25 7L6.5 8.25L8.75 5.75" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="7" cy="7" r="5.5" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
+                Community Verified
+              </span>
+              <h3 className={styles.featureLargeTitle}>Real Route Feedback</h3>
+              <p className={styles.featureLargeDescription}>
+                Walkers and Runners rate routes, flag issues, and leave notes so the next person knows exactly what to expect.
               </p>
             </div>
           </div>
@@ -38,9 +44,9 @@ export function FeaturesNew() {
                   <path d="M20 14L20 26M14 20L26 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                 </svg>
               </div>
-              <h3 className={styles.featureTitle}>Smart Matching</h3>
+              <h3 className={styles.featureTitle}>Routes That Get You</h3>
               <p className={styles.featureDescription}>
-                Tell us your mood and goals. Our algorithm surfaces routes that fit your vibe—peaceful sunrise run or intense hill workout.
+                Tell us your distance, terrain, and mood. MilesMe generates loop routes that fit, whether that&#39;s a peaceful sunrise walk or an intense hill session.
               </p>
             </div>
 
@@ -51,9 +57,9 @@ export function FeaturesNew() {
                   <path d="M15 20L18 23L25 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <h3 className={styles.featureTitle}>Offline & Private</h3>
+              <h3 className={styles.featureTitle}>No Signal, No Problem</h3>
               <p className={styles.featureDescription}>
-                Download routes for offline use. Your location data stays on your device. Run freely without being tracked.
+                MilesMe has great offline support, so poor signal or patchy connectivity won&#39;t slow you down. Your location data stays on your device, always.
               </p>
             </div>
           </div>
@@ -61,14 +67,29 @@ export function FeaturesNew() {
           {/* Full width feature - image right */}
           <div className={styles.featureFull}>
             <div className={styles.featureContent}>
+              <div className={styles.featureIcon}>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="12" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="20" cy="20" r="3" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M20 8V12M20 28V32M8 20H12M28 20H32" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </div>
               <h3 className={styles.featureTitle}>Built for Explorers</h3>
               <p className={styles.featureDescription}>
-                Discover hidden gems in your city or find the best runs when traveling. Filter by scenery, surface type, elevation, and safety ratings.
+                Discover hidden gems in your city or find the best runs when traveling. Filter by what matters to you.
               </p>
+              <div className={styles.filterTags}>
+                <span className={styles.filterTag}>Scenery</span>
+                <span className={styles.filterTag}>Surface Type</span>
+                <span className={styles.filterTag}>Elevation</span>
+                <span className={styles.filterTag}>Safety Rating</span>
+                <span className={styles.filterTag}>Distance</span>
+                <span className={styles.filterTag}>Shade</span>
+              </div>
             </div>
             <div className={styles.featureImage}>
               <img
-                src="/images/runner on bushy trail.jpg"
+                src="/images/runner along a hill.png"
                 alt="Built for explorers"
                 className={styles.image}
               />

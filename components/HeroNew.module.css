@@ -1,51 +1,88 @@
+/* ========================================
+   HERO — Dark, Floating Collage
+   ======================================== */
 .hero {
   position: relative;
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: var(--spacing-5xl) var(--spacing-3md);
-  background: var(--color--cream-500);
+  padding: var(--spacing-5xl) 80px;
+  background: var(--color--dark-500);
   overflow: hidden;
+  /* Dot grid pattern */
+  background-image: radial-gradient(circle, rgba(250, 243, 232, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Soft gradient orb — top-left */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(243, 167, 42, 0.18) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Soft gradient orb — bottom-right */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(250, 243, 232, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   max-width: var(--container--large);
   margin: 0 auto;
   width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  align-items: flex-start;
   gap: var(--spacing-4xl);
-  align-items: center;
 }
 
-/* Left Column */
+/* ========================================
+   LEFT — Copy (40%)
+   ======================================== */
 .content {
+  flex: 0 0 45%;
+  max-width: 560px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
   z-index: 1;
+  /* Entrance fade */
+  opacity: 0;
+  animation: contentEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
-.overlinePill {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: rgba(243, 167, 42, 0.12);
-  border-radius: var(--border-radius--pill);
-  font-size: var(--font-size--caption);
-  font-weight: var(--font-weight--semibold);
-  color: var(--color--orange-500);
-  letter-spacing: var(--letter-spacing--wide);
+@keyframes contentEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .headline {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(42px, 5vw, 72px);
   font-weight: var(--font-weight--black);
-  line-height: var(--line-height--hero);
-  letter-spacing: var(--letter-spacing--tight);
-  color: var(--color--dark-500);
-  text-transform: uppercase;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  color: var(--color--cream-500);
   margin: 0;
 }
 
@@ -53,235 +90,307 @@
   color: var(--color--amber-500);
 }
 
-.subheadline {
-  font-size: var(--font-size--body-large);
+.tagline {
+  font-size: 19px;
   font-weight: var(--font-weight--regular);
-  line-height: var(--line-height--base);
-  color: var(--color--dark-600);
-  max-width: 520px;
+  line-height: 1.55;
+  color: rgba(250, 243, 232, 0.6);
+  max-width: 440px;
+  margin: 0;
 }
 
-/* Button Group */
-.buttonGroup {
+.ctaGroup {
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
-  margin-top: var(--spacing-sm);
 }
 
-.primaryButton {
-  padding: 1rem 2rem;
-  font-size: var(--font-size--ui);
-}
-
-.secondaryButton {
-  padding: 1rem 2rem;
-  font-size: var(--font-size--ui);
-}
-
-/* Trust Text */
-.trustText {
-  font-size: var(--font-size--caption);
-  color: var(--color--dark-400);
-  font-weight: var(--font-weight--medium);
-}
-
-/* Stats Row */
-.statsRow {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-lg);
-  margin-top: var(--spacing-md);
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.statValue {
-  font-size: var(--font-size--xl);
-  font-weight: var(--font-weight--black);
-  color: var(--color--dark-500);
-  line-height: 1;
-  letter-spacing: var(--letter-spacing--tight);
-}
-
-.statLabel {
-  font-size: var(--font-size--caption);
-  font-weight: var(--font-weight--medium);
-  color: var(--color--dark-400);
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing--wide);
-}
-
-.statDivider {
-  width: 1px;
-  height: 40px;
-  background: rgba(45, 47, 38, 0.12);
-}
-
-/* Right Column - Image Composition */
-.imageComposition {
-  position: relative;
-  display: flex;
+.ctaButton {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 600px;
+  padding: 18px 40px;
+  background: var(--color--amber-500);
+  color: var(--color--dark-500);
+  font-size: 17px;
+  font-weight: var(--font-weight--bold);
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    background var(--transition-duration--fast) var(--transition-timing--base),
+    transform var(--transition-duration--fast) var(--transition-timing--base),
+    box-shadow var(--transition-duration--fast) var(--transition-timing--base);
 }
 
-.imagePrimary {
+.ctaButton:hover {
+  background: #f5b43e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(243, 167, 42, 0.3);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 40px;
+  background: transparent;
+  color: var(--color--cream-500);
+  font-size: 17px;
+  font-weight: var(--font-weight--medium);
+  border: 1.5px solid rgba(250, 243, 232, 0.5);
+  border-radius: 14px;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-duration--fast) var(--transition-timing--base),
+    color var(--transition-duration--fast) var(--transition-timing--base),
+    transform var(--transition-duration--fast) var(--transition-timing--base);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--color--amber-500);
+  color: var(--color--amber-500);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   RIGHT — Floating Collage (60%)
+   ======================================== */
+.collage {
+  flex: 1;
   position: relative;
-  width: 380px;
-  height: 500px;
-  border-radius: var(--border-radius--xl);
-  overflow: hidden;
-  box-shadow: 0 20px 60px rgba(45, 47, 38, 0.15);
-  z-index: 1;
+  height: 560px;
 }
 
-.imageSecondary {
+/* ========================================
+   ENTRANCE ANIMATION
+   ======================================== */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Shared card base */
+.card1,
+.card2,
+.card3 {
   position: absolute;
-  bottom: 10px;
-  right: -20px;
-  width: 300px;
-  height: 400px;
-  border-radius: var(--border-radius--xl);
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(45, 47, 38, 0.18);
-  border: 4px solid var(--color--cream-50);
-  z-index: 2;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+  /* Entrance animation */
+  opacity: 0;
+  animation: cardEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  /* Smooth parallax */
+  will-change: transform;
 }
 
-.heroImage {
+/* Greenish tint overlay on scenic card (brighter image) */
+.card1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(45, 47, 38, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card1:hover,
+.card2:hover,
+.card3:hover {
+  z-index: 10;
+}
+
+/* Tag pills entrance */
+.tagPill {
+  opacity: 0;
+  animation: cardEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.9s;
+}
+
+/* Card 1: Scenic — top-left, back */
+.card1 {
+  width: 280px;
+  height: 350px;
+  top: 0;
+  left: 0;
+  transform: rotate(-3deg);
+  z-index: 1;
+  animation-delay: 0.1s;
+}
+
+.card1:hover {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* Card 2: Urban — center, middle layer */
+.card2 {
+  width: 280px;
+  height: 350px;
+  top: calc(50% - 175px);
+  left: calc(50% - 140px);
+  transform: rotate(2deg);
+  z-index: 2;
+  animation-delay: 0.3s;
+}
+
+.card2:hover {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+/* Card 3: Trail — bottom-right, front */
+.card3 {
+  width: 280px;
+  height: 350px;
+  bottom: 0;
+  right: 0;
+  transform: rotate(-1.5deg);
+  z-index: 3;
+  animation-delay: 0.5s;
+}
+
+.card3:hover {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+}
+
+.cardImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
-/* Floating Badge */
-.floatingBadge {
+/* Tag pills on cards */
+.tagPill {
   position: absolute;
-  top: 40px;
-  right: -10px;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  background: #ffffff;
-  padding: var(--spacing-2sm) var(--spacing-md);
-  border-radius: var(--border-radius--pill);
-  box-shadow: var(--shadow--card);
-  animation: floatBadge 3s ease-in-out infinite;
-}
-
-@keyframes floatBadge {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.badgeIcon {
-  display: flex;
-  align-items: center;
-}
-
-.badgeText {
-  display: flex;
-  flex-direction: column;
-}
-
-.badgeTitle {
-  font-size: 0.875rem;
-  font-weight: var(--font-weight--semibold);
+  background: var(--color--amber-500);
   color: var(--color--dark-500);
-  line-height: 1.2;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: var(--font-weight--bold);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
 }
 
-.badgeSub {
-  font-size: var(--font-size--caption);
-  color: var(--color--dark-400);
-}
-
-/* Responsive: Tablet */
+/* ========================================
+   RESPONSIVE: TABLET (< 968px)
+   ======================================== */
 @media (max-width: 968px) {
   .hero {
-    min-height: auto;
-    padding: var(--spacing-4xl) var(--spacing-md);
+    padding: var(--spacing-5xl) var(--spacing-3md);
   }
 
   .container {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: var(--spacing-3xl);
   }
 
-  .headline {
-    font-size: 2.5rem;
+  .content {
+    flex: none;
+    max-width: 100%;
   }
 
-  .subheadline {
-    font-size: var(--font-size--body);
+  .tagline {
+    max-width: 480px;
   }
 
-  .imageComposition {
-    min-height: 460px;
-    justify-content: center;
+  .collage {
+    width: 100%;
+    max-width: 480px;
+    height: 420px;
+    margin: 0 auto;
   }
 
-  .imagePrimary {
-    width: 300px;
-    height: 400px;
+  .card1 {
+    width: 210px;
+    height: 260px;
+    top: 0;
+    left: 0;
   }
 
-  .imageSecondary {
-    width: 240px;
-    height: 320px;
-    bottom: 10px;
-    right: 5%;
+  .card2 {
+    width: 210px;
+    height: 260px;
+    top: calc(50% - 130px);
+    left: calc(50% - 105px);
+  }
+
+  .card3 {
+    width: 210px;
+    height: 260px;
+    bottom: 0;
+    right: 0;
   }
 }
 
-/* Responsive: Mobile */
+/* ========================================
+   RESPONSIVE: MOBILE (< 768px)
+   ======================================== */
 @media (max-width: 768px) {
-  .buttonGroup {
-    flex-direction: column;
-    align-items: stretch;
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-4xl) var(--spacing-md);
+    background-image: none;
   }
 
-  .primaryButton,
-  .secondaryButton {
-    width: 100%;
-    text-align: center;
-  }
-
-  .statsRow {
-    gap: var(--spacing-md);
-  }
-
-  .statValue {
-    font-size: var(--font-size--lg);
-  }
-
-  .statDivider {
-    height: 32px;
-  }
-
-  .floatingBadge {
+  .hero::before,
+  .hero::after {
     display: none;
   }
 
-  .imageComposition {
-    min-height: 380px;
+  .headline {
+    font-size: 2rem;
+    letter-spacing: -1px;
   }
 
-  .imagePrimary {
-    width: 240px;
-    height: 320px;
+  .tagline {
+    font-size: 15px;
   }
 
-  .imageSecondary {
-    width: 190px;
-    height: 260px;
+  .collage {
+    height: 360px;
+    max-width: 340px;
+  }
+
+  .card1 {
+    width: 170px;
+    height: 215px;
+    top: 0;
+    left: 0;
+  }
+
+  .card2 {
+    width: 170px;
+    height: 215px;
+    top: calc(50% - 107px);
+    left: calc(50% - 85px);
+  }
+
+  .card3 {
+    width: 170px;
+    height: 215px;
+    bottom: 0;
     right: 0;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .content,
+  .card1,
+  .card2,
+  .card3,
+  .tagPill {
+    animation: none;
+    opacity: 1;
   }
 }

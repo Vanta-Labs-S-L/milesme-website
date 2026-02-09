@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import styles from "./NavNew.module.css";
 
-export function NavNew() {
-  const [isScrolled, setIsScrolled] = useState(false);
+export function NavNew({ forceScrolled = false }: { forceScrolled?: boolean }) {
+  const [isScrolled, setIsScrolled] = useState(forceScrolled);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(forceScrolled || window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -30,11 +30,11 @@ export function NavNew() {
         </div>
 
         <div className={styles.menu}>
-          <button onClick={() => scrollToSection("features")} className={styles.navLink}>
-            Features
-          </button>
           <button onClick={() => scrollToSection("how-it-works")} className={styles.navLink}>
             How It Works
+          </button>
+          <button onClick={() => scrollToSection("features")} className={styles.navLink}>
+            Why MilesMe
           </button>
           <button
             onClick={() => scrollToSection("waitlist")}

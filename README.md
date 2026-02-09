@@ -1,104 +1,72 @@
-# MilesMe Website
+# MilesMe
 
-A lightweight Next.js application with Supabase authentication and Roux CSS styling.
+Marketing site and waitlist for MilesMe. Single-page landing with a waitlist signup form.
 
 ## Stack
 
-- **Next.js 14+** with App Router
-- **TypeScript**
-- **Supabase** for authentication and database
-- **Roux CSS** by Thoughtbot for base styling
-- **CSS Modules** for component-scoped styles
+- **Next.js 16** (App Router, Turbopack)
+- **React 19**, TypeScript
+- **Supabase** for waitlist form submissions
+- **Roux CSS** (Thoughtbot) for base styles + CSS Modules for component styles
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Environment Variables
+
+Create a `.env.local` file:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=<your-supabase-project-url>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+```
+
+Get these from your Supabase project dashboard. The waitlist table schema is in `supabase/migrations/001_create_waitlist.sql`.
+
+## Scripts
+
+```bash
+npm run dev      # Dev server (localhost:3000)
+npm run build    # Production build
+npm run start    # Serve production build
+npm run lint     # ESLint
+```
+
+## Deployment
+
+Deploy to Vercel (or any platform that supports Next.js). Set the environment variables above in your hosting provider's dashboard.
+
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page (hero, how it works, features, waitlist, footer) |
+| `/legal` | Privacy Policy and Terms of Service |
 
 ## Project Structure
 
 ```
 app/
-├── (public)/          # Public pages
-│   ├── page.tsx       # Landing page
-│   ├── privacy/       # Privacy policy
-│   └── terms/         # Terms of service
-├── (dashboard)/       # Protected admin area
-│   └── dashboard/
-├── login/             # Admin login page
-└── layout.tsx         # Root layout
-components/            # Shared components
-lib/
-└── supabase/          # Supabase utilities
-    ├── client.ts      # Client-side helper
-    ├── server.ts      # Server-side helper
-    └── middleware.ts  # Middleware helper
-css/                   # Roux CSS base styles
+  (public)/         Public routes (landing, legal)
+  layout.tsx        Root layout
+components/         React components (each with co-located .module.css)
+css/                Roux CSS base styles (reset, variables, typography, etc.)
+lib/supabase/       Supabase client helpers
+public/images/      Static assets
+supabase/           Database migrations
 ```
 
-## Setup Instructions
+## TODO / Known Limitations
 
-### 1. Install Dependencies
+- **Waitlist form is frontend-only.** The submit handler currently simulates success with a timeout. Before launch, wire it up to Supabase (`supabase.from("waitlist").insert(...)`) to actually capture email submissions. The migration and Supabase client helpers are already in place.
+- Images in `public/images/` are unoptimized originals. Consider using Next.js `<Image>` with proper sizing before launch.
 
-```bash
-npm install
-```
+## Reference Docs
 
-### 2. Configure Supabase
-
-1. Create a Supabase project at [supabase.com](https://supabase.com)
-2. Copy your project URL and anon key
-3. Update `.env.local` with your credentials:
-
-```
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-```
-
-### 3. Create Admin User
-
-In your Supabase project dashboard:
-
-1. Go to Authentication → Users
-2. Create a new user with email and password
-3. This user will have admin access to the dashboard
-
-### 4. Run Development Server
-
-```bash
-npm run dev
-```
-
-Visit [http://localhost:3000](http://localhost:3000)
-
-## Routes
-
-- `/` - Landing page
-- `/privacy` - Privacy policy
-- `/terms` - Terms of service
-- `/login` - Admin login (email/password)
-- `/dashboard` - Protected admin dashboard
-
-## Authentication Flow
-
-- Admin logs in at `/login` with email/password
-- Middleware protects `/dashboard` routes
-- Server-side session handling using `@supabase/ssr`
-- Unauthenticated users are redirected to `/login`
-
-## Styling
-
-- **Roux CSS** provides base reset and typography
-- **CSS Modules** for component-specific styles
-- No additional CSS tooling or frameworks
-
-## Development
-
-```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run start    # Start production server
-npm run lint     # Run ESLint
-```
-
-## Notes
-
-- Keep dependencies minimal
-- No placeholder content or lorem ipsum
-- Clean separation of concerns with route groups
-- Server and client Supabase utilities are separated
+Brand guidelines, user research, and product principles are maintained separately and available from the team.

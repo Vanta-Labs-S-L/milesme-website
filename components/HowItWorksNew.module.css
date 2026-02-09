@@ -62,7 +62,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-3xl);
-  align-items: center;
+  align-items: start;
 }
 
 /* ========================================
@@ -210,6 +210,7 @@
   align-items: center;
   gap: var(--spacing-xl);
   position: relative;
+  padding-top: 76px;
 }
 
 /* Store badges */
@@ -268,8 +269,8 @@
 /* Phone frame: viewport-relative, keeps iPhone ratio */
 .phoneFrame {
   position: relative;
-  height: 72vh;
-  max-height: 680px;
+  height: 62vh;
+  max-height: 580px;
   aspect-ratio: 390 / 844;
   border-radius: 36px;
   border: 3px solid #9A9A9A;

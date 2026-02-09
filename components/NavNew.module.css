@@ -7,7 +7,7 @@
   transition: background-color var(--transition-duration--base) var(--transition-timing--base),
               backdrop-filter var(--transition-duration--base) var(--transition-timing--base),
               box-shadow var(--transition-duration--base) var(--transition-timing--base);
-  padding: var(--spacing-md) 0;
+  padding: var(--spacing-md) 80px;
 }
 
 .nav.scrolled {
@@ -24,7 +24,7 @@
   justify-content: space-between;
   max-width: var(--container--large);
   margin: 0 auto;
-  padding: 0 var(--spacing-3md);
+  padding: 0;
 }
 
 .logo {
@@ -75,8 +75,19 @@
   font-size: 0.9375rem;
 }
 
-/* Mobile Styles */
+/* Tablet */
+@media (max-width: 968px) {
+  .nav {
+    padding: var(--spacing-md) var(--spacing-3md);
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
+  .nav {
+    padding: var(--spacing-md) var(--spacing-md);
+  }
+
   .menu {
     gap: var(--spacing-md);
   }

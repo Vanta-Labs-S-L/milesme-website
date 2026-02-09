@@ -65,19 +65,19 @@ export function HowItWorksNew() {
     <section id="how-it-works" ref={sectionRef} className={styles.section}>
       <div className={styles.stickyWrapper}>
         <div className={styles.container}>
-          {/* Header: full-width row above the grid */}
-          <div className={styles.header}>
-            <span className={styles.overline}>How It Works</span>
-            <h2 className={styles.heading}>
-              Built around how you actually like to{" "}
-              <span className={styles.accent}>walk or run.</span>
-            </h2>
-          </div>
-
           {/* Two-column content */}
           <div className={styles.columns}>
           {/* Left: Text content */}
           <div className={styles.contentColumn}>
+            {/* Header */}
+            <div className={styles.header}>
+              <span className={styles.overline}>How It Works</span>
+              <h2 className={styles.heading}>
+                Built around how you like to{" "}
+                <span className={styles.accent}>walk or run.</span>
+              </h2>
+            </div>
+
             <div className={styles.stepsWrapper}>
               {steps.map((step, index) => (
                 <div
@@ -123,11 +123,13 @@ export function HowItWorksNew() {
                   }`}
                 />
               ))}
+            </div>
+
             {/* Store badges */}
             <div className={styles.storeBadges}>
               <div className={styles.storeBadge}>
                 <svg className={styles.storeIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="#000000"/>
+                  <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="#FFFFFF"/>
                 </svg>
                 <div className={styles.storeBadgeText}>
                   <span className={styles.storeBadgeLabel}>Coming soon on</span>
@@ -146,7 +148,6 @@ export function HowItWorksNew() {
                   <span className={styles.storeBadgeName}>Google Play</span>
                 </div>
               </div>
-            </div>
             </div>
           </div>
           </div>

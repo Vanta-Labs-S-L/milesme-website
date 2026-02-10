@@ -9,14 +9,14 @@ const steps = [
     title: "Set Your Preferences",
     description:
       "Pick your distance, choose what terrain feels right today. We\u2019ll take it from there.",
-    screen: "/images/Generate route.png",
+    screen: "/images/genrate route.png",
   },
   {
     number: "02",
     title: "Get Curated Routes",
     description:
       "Routes show up instantly, built around your preferences.",
-    screen: "/images/curated routes.png",
+    screen: "/images/Preview route.png",
   },
   {
     number: "03",
@@ -65,6 +65,15 @@ export function HowItWorksNew() {
     <section id="how-it-works" ref={sectionRef} className={styles.section}>
       <div className={styles.stickyWrapper}>
         <div className={styles.container}>
+          {/* Mobile-only header (above phone on small screens) */}
+          <div className={styles.mobileHeader}>
+            <span className={styles.overline}>How It Works</span>
+            <h2 className={styles.heading}>
+              Built around how you like to{" "}
+              <span className={styles.accent}>walk or run.</span>
+            </h2>
+          </div>
+
           {/* Two-column content */}
           <div className={styles.columns}>
           {/* Left: Text content */}
@@ -79,18 +88,23 @@ export function HowItWorksNew() {
             </div>
 
             <div className={styles.stepsWrapper}>
-              {steps.map((step, index) => (
-                <div
-                  key={index}
-                  className={`${styles.stepContent} ${
-                    activeStep === index ? styles.stepActive : ""
-                  } ${activeStep > index ? styles.stepExited : ""}`}
-                >
-                  <div className={styles.stepNumber}>{step.number}</div>
-                  <h3 className={styles.stepTitle}>{step.title}</h3>
-                  <p className={styles.stepDescription}>{step.description}</p>
-                </div>
-              ))}
+              <div
+                className={styles.stepsTrack}
+                style={{ '--slider-offset': `${activeStep * 100}%` } as React.CSSProperties}
+              >
+                {steps.map((step, index) => (
+                  <div
+                    key={index}
+                    className={`${styles.stepContent} ${
+                      activeStep === index ? styles.stepActive : ""
+                    } ${activeStep > index ? styles.stepExited : ""}`}
+                  >
+                    <div className={styles.stepNumber}>{step.number}</div>
+                    <h3 className={styles.stepTitle}>{step.title}</h3>
+                    <p className={styles.stepDescription}>{step.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className={styles.progressBar}>

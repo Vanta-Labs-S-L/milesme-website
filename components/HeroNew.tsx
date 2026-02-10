@@ -19,6 +19,8 @@ export function HeroNew() {
     if (prefersReduced) return;
 
     const handleScroll = () => {
+      if (window.innerWidth <= 768) return;
+
       const collage = collageRef.current;
       if (!collage) return;
 

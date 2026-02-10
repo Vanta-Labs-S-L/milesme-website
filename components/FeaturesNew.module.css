@@ -288,7 +288,7 @@
 /* Mobile */
 @media (max-width: 968px) {
   .features {
-    padding: var(--spacing-4xl) var(--spacing-md);
+    padding: var(--spacing-4xl) var(--spacing-3md);
     background-image: none;
   }
 
@@ -299,10 +299,12 @@
 
   .header {
     margin-bottom: var(--spacing-4xl);
+    text-align: center;
   }
 
   .heading {
     font-size: var(--font-size--3xl);
+    max-width: none;
   }
 
   .grid {

@@ -135,7 +135,7 @@
 /* Mobile */
 @media (max-width: 968px) {
   .footer {
-    padding: var(--spacing-4xl) var(--spacing-md) var(--spacing-3md);
+    padding: var(--spacing-4xl) var(--spacing-3md) var(--spacing-3md);
     background-image: none;
   }
 
@@ -149,11 +149,21 @@
     gap: var(--spacing-4xl);
     margin-bottom: var(--spacing-3xl);
     padding-bottom: var(--spacing-3xl);
+    text-align: center;
+  }
+
+  .brand {
+    align-items: center;
   }
 
   .links {
     grid-template-columns: 1fr;
     gap: var(--spacing-3md);
+    text-align: center;
+  }
+
+  .linkColumn {
+    align-items: center;
   }
 
   .bottom {

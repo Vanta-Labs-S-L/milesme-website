@@ -47,7 +47,6 @@
   letter-spacing: -0.01em;
 }
 
-
 .menu {
   display: flex;
   align-items: center;
@@ -75,29 +74,129 @@
   font-size: 0.9375rem;
 }
 
-/* Tablet */
+/* ========================================
+   HAMBURGER BUTTON (mobile only)
+   ======================================== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color--cream-500);
+  border-radius: 2px;
+  transition: transform var(--transition-duration--base) var(--transition-timing--base),
+              opacity var(--transition-duration--base) var(--transition-timing--base);
+  transform-origin: center;
+}
+
+/* Hamburger → X animation */
+.hamburgerActive .hamburgerLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburgerActive .hamburgerLine:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerActive .hamburgerLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ========================================
+   TABLET
+   ======================================== */
 @media (max-width: 968px) {
   .nav {
     padding: var(--spacing-md) var(--spacing-3md);
   }
 }
 
-/* Mobile */
+/* ========================================
+   MOBILE
+   ======================================== */
 @media (max-width: 768px) {
   .nav {
-    padding: var(--spacing-md) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-3md);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav.menuOpen {
+    background: rgba(17, 18, 16, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
   }
 
   .menu {
-    gap: var(--spacing-md);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xl);
+    background: rgba(17, 18, 16, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity var(--transition-duration--base) var(--transition-timing--base),
+                visibility var(--transition-duration--base) var(--transition-timing--base),
+                transform var(--transition-duration--base) var(--transition-timing--base);
+  }
+
+  .menu.menuVisible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 
   .navLink {
-    font-size: var(--font-size--xs);
+    font-size: var(--font-size--lg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    min-height: 48px;
+    display: flex;
+    align-items: center;
   }
 
   .ctaButton {
-    padding: 0.5rem 1rem;
-    font-size: var(--font-size--xs);
+    margin-top: var(--spacing-lg);
+    padding: 18px 48px;
+    font-size: var(--font-size--body);
+    min-height: 48px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hamburgerLine {
+    transition: none;
+  }
+
+  .menu {
+    transition: none;
   }
 }

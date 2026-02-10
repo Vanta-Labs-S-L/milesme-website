@@ -185,7 +185,7 @@
 /* Mobile */
 @media (max-width: 768px) {
   .waitlist {
-    padding: var(--spacing-4xl) var(--spacing-md);
+    padding: var(--spacing-4xl) var(--spacing-3md);
     background-image: none;
   }
 
@@ -205,17 +205,24 @@
 
   .inputWrapper {
     flex-direction: column;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-2sm);
+    gap: var(--spacing-md);
+    padding: 0;
+    background: none;
+    border: none;
   }
 
   .input {
     padding: 0.875rem 1rem;
+    text-align: center;
+    background: rgba(45, 47, 38, 0.06);
+    border: 1px solid rgba(45, 47, 38, 0.15);
+    border-radius: var(--border-radius--pill);
   }
 
   .submitButton {
     width: 100%;
     justify-content: center;
+    border-radius: var(--border-radius--pill);
   }
 
   .successHeading {

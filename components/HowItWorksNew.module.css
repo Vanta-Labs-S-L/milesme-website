@@ -71,7 +71,7 @@
 .contentColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-3xl);
 }
 
 /* Header */
@@ -103,8 +103,17 @@
   color: var(--color--amber-500);
 }
 
+/* Mobile-only header (hidden on desktop) */
+.mobileHeader {
+  display: none;
+}
+
 /* Steps: stacked, crossfade in/out */
 .stepsWrapper {
+  position: relative;
+}
+
+.stepsTrack {
   position: relative;
   min-height: 240px;
 }
@@ -340,12 +349,12 @@
 }
 
 /* ========================================
-   RESPONSIVE: MOBILE — no pinning, stacked
+   RESPONSIVE: MOBILE — sticky + slider
    ======================================== */
 @media (max-width: 768px) {
   .section {
-    height: auto;
-    padding: var(--spacing-4xl) var(--spacing-md);
+    height: 115vh;
+    padding: 0;
     background-image: none;
   }
 
@@ -355,27 +364,57 @@
   }
 
   .stickyWrapper {
-    position: relative;
-    top: auto;
+    position: sticky;
+    top: 0;
     height: auto;
-    padding: 0;
+    padding: var(--spacing-4xl) var(--spacing-3md) var(--spacing-3xl);
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .container {
+    gap: var(--spacing-md);
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Mobile header: visible */
+  .mobileHeader {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .mobileHeader .heading {
+    font-size: var(--font-size--xl);
+    max-width: none;
+  }
+
+  /* Desktop header: hidden */
+  .header {
+    display: none;
   }
 
   .columns {
     grid-template-columns: 1fr;
-    gap: var(--spacing-3xl);
+    gap: var(--spacing-lg);
+    justify-items: center;
   }
 
   .phoneColumn {
     order: -1;
+    padding-top: 0;
+    align-items: center;
   }
 
   .phoneFrame {
+    width: 160px;
     height: auto;
     max-height: none;
-    width: 220px;
     aspect-ratio: 390 / 844;
-    border-radius: 28px;
+    border-radius: 24px;
   }
 
   .phoneGlow {
@@ -386,19 +425,31 @@
     display: none;
   }
 
+  /* Steps: horizontal slider */
   .stepsWrapper {
-    min-height: auto;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .stepsTrack {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-3xl);
+    min-height: auto;
+    transform: translateX(calc(-1 * var(--slider-offset, 0%)));
+    transition: transform var(--transition-duration--base) var(--transition-timing--smooth);
   }
 
   .stepContent {
     position: relative;
+    flex-shrink: 0;
+    width: 100%;
     opacity: 1;
     transform: none;
     transition: none;
     pointer-events: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .stepContent.stepExited {
@@ -407,17 +458,11 @@
   }
 
   .stepNumber {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
-  .phoneScreen {
-    position: relative;
-    opacity: 1;
-    transition: none;
-  }
-
-  .phoneScreen:not(:first-child) {
-    display: none;
+  .stepDescription {
+    max-width: 300px;
   }
 
   .progressBar {
@@ -438,6 +483,10 @@
   .stepContent.stepExited {
     opacity: 1;
     transform: none;
+  }
+
+  .stepsTrack {
+    transition: none;
   }
 
   .phoneScreen {

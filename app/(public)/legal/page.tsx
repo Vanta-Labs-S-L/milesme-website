@@ -84,166 +84,411 @@ export default function LegalPage() {
           {/* ===== PRIVACY POLICY ===== */}
           <section id="privacy-policy" className={styles.section}>
             <h1 className={styles.sectionTitle}>Privacy Policy</h1>
-            <p className={styles.effectiveDate}>Effective: February 2025</p>
+            <p className={styles.effectiveDate}>Effective: February 1st, 2026</p>
 
             <div className={styles.prose}>
               <p>
-                MilesMe ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website and services.
+                This Privacy Policy (&quot;Policy&quot;) explains how MilesMe collects, uses, shares, and
+                protects your personal information, and how you can exercise your privacy rights.
+              </p>
+              <p>
+                MilesMe is operated by Vanta Labs S.L., a company registered in Spain with its registered
+                office in Barcelona, Spain (&quot;Vanta Labs&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). By using
+                MilesMe, you agree to this Policy.
               </p>
 
-              <h2>1. Information We Collect</h2>
-              <h3>Information you provide</h3>
+              <h2>1. Scope</h2>
+              <p>
+                This Policy applies to the MilesMe mobile applications, website(s), and related services
+                (collectively, the &quot;Services&quot;). It should be read together with our Terms of Service,
+                which govern your use of MilesMe. For the purposes of applicable data protection laws,
+                Vanta Labs S.L. is the data controller.
+              </p>
+
+              <h2>2. Information We Collect</h2>
+
+              <h3>A. Information You Provide</h3>
+              <h4>Account Information</h4>
               <ul>
-                <li><strong>Waitlist sign-up:</strong> When you join our waitlist, we collect your email address.</li>
-                <li><strong>Account information:</strong> When our app launches, we may collect your name, email, and preferences to personalise your experience.</li>
+                <li>Name or username</li>
+                <li>Email address</li>
+                <li>Password (encrypted)</li>
+                <li>Country or region</li>
               </ul>
 
-              <h3>Information collected automatically</h3>
+              <h4>Profile &amp; Preferences</h4>
               <ul>
-                <li><strong>Usage data:</strong> We may collect anonymised data about how you interact with our website, such as pages visited and time spent.</li>
-                <li><strong>Device information:</strong> Browser type, operating system, and device type for improving compatibility.</li>
+                <li>Activity preferences (e.g. walking, running, cycling)</li>
+                <li>Goals (distance, time, calories)</li>
+                <li>Optional information such as experience level</li>
               </ul>
 
-              <h3>Information we do not collect</h3>
+              <h4>Support Communications</h4>
               <ul>
-                <li><strong>Location data:</strong> MilesMe is designed with privacy-first principles. Your precise location data stays on your device and is never sent to our servers.</li>
+                <li>Information you provide when contacting support or submitting feedback</li>
               </ul>
 
-              <h2>2. How We Use Your Information</h2>
+              <h3>B. Information Collected Through Use of the Services</h3>
+              <h4>Activity &amp; Route Data</h4>
               <ul>
-                <li>To notify you when MilesMe launches</li>
-                <li>To improve and personalise the MilesMe experience</li>
-                <li>To respond to your enquiries and support requests</li>
-                <li>To send important updates about the service (not marketing spam)</li>
+                <li>Generated routes</li>
+                <li>Distance, duration, pace</li>
+                <li>Elevation data</li>
+                <li>Activity timestamps</li>
+                <li>Route preferences you select</li>
               </ul>
 
-              <h2>3. Data Sharing</h2>
-              <p>
-                We do not sell, rent, or share your personal information with third parties for marketing purposes. We may share data with:
-              </p>
+              <h4>Location Information</h4>
               <ul>
-                <li><strong>Service providers:</strong> Trusted partners who help us operate the service (e.g., email delivery, hosting), bound by strict confidentiality agreements.</li>
-                <li><strong>Legal requirements:</strong> If required by law, regulation, or legal process.</li>
+                <li>
+                  Precise location is collected only when required for route generation or navigation.
+                  Location permissions can be revoked at any time via your device settings.
+                </li>
               </ul>
 
-              <h2>4. Data Security</h2>
-              <p>
-                We implement industry-standard security measures to protect your information, including encryption in transit and at rest. However, no method of transmission over the internet is 100% secure.
-              </p>
-
-              <h2>5. Your Rights</h2>
-              <p>You have the right to:</p>
+              <h4>Usage Information</h4>
               <ul>
-                <li>Access the personal data we hold about you</li>
-                <li>Request correction of inaccurate data</li>
-                <li>Request deletion of your data</li>
-                <li>Withdraw consent at any time</li>
-                <li>Opt out of communications</li>
+                <li>App interactions and feature usage</li>
+                <li>Crash logs and performance diagnostics</li>
               </ul>
 
-              <h2>6. Cookies</h2>
+              <h4>Device &amp; Technical Information</h4>
+              <ul>
+                <li>Device type</li>
+                <li>Operating system</li>
+                <li>App version</li>
+                <li>Anonymous identifiers</li>
+              </ul>
+
+              <h3>C. Information from Third Parties</h3>
+              <h4>App Store Providers</h4>
+              <ul>
+                <li>Subscription status (active, cancelled, expired)</li>
+                <li>We do not receive full payment card details</li>
+              </ul>
+
+              <h4>Connected Services</h4>
+              <ul>
+                <li>
+                  If you connect third-party services (for example, Apple Health), we only access data
+                  you explicitly authorise.
+                </li>
+              </ul>
+
+              <h2>3. How We Use Your Information</h2>
+
+              <h3>A. To Provide the Services</h3>
+              <ul>
+                <li>Create and manage your account</li>
+                <li>Generate routes tailored to your preferences</li>
+                <li>Display maps, elevation, and activity summaries</li>
+                <li>Enable navigation and route guidance</li>
+              </ul>
+
+              <h3>B. To Improve MilesMe</h3>
+              <ul>
+                <li>Analyse usage trends</li>
+                <li>Fix bugs and improve performance</li>
+                <li>Improve route quality and reliability</li>
+                <li>Develop new features</li>
+              </ul>
+              <p>We may use aggregated or de-identified data for analysis and research.</p>
+
+              <h3>C. To Communicate with You</h3>
+              <ul>
+                <li>Service-related messages</li>
+                <li>Support responses</li>
+                <li>Important updates about the app</li>
+              </ul>
+              <p>We do not send third-party advertising emails.</p>
+
+              <h3>D. AI &amp; Automation (Limited Use)</h3>
+              <p>MilesMe may use automated systems to:</p>
+              <ul>
+                <li>Improve route generation quality</li>
+                <li>Detect anomalies or errors</li>
+                <li>Optimise performance</li>
+              </ul>
+              <p>We do not use automated decision-making with legal or similarly significant effects.</p>
+
+              <h2>4. How We Share Information</h2>
+              <p>We do not sell personal data.</p>
+              <p>We may share information only in the following cases:</p>
+              <h3>Service Providers</h3>
               <p>
-                Our website uses minimal, essential cookies to ensure proper functionality. We do not use tracking cookies or third-party advertising cookies.
+                Trusted providers that help us operate the Services (such as hosting, analytics, mapping,
+                and subscriptions). They are contractually required to protect your data.
+              </p>
+              <h3>Legal Obligations</h3>
+              <p>
+                When required by law, court order, or where necessary to protect safety, rights, or
+                property.
+              </p>
+              <h3>Business Transfers</h3>
+              <p>
+                In the event of a merger, acquisition, or asset sale, your data may be transferred in
+                accordance with this Policy.
               </p>
 
-              <h2>7. Children's Privacy</h2>
+              <h2>5. Data Retention</h2>
+              <p>We retain personal information:</p>
+              <ul>
+                <li>For as long as your account is active</li>
+                <li>As needed to provide the Services</li>
+                <li>As required by law</li>
+              </ul>
               <p>
-                MilesMe is not directed at children under 13. We do not knowingly collect personal information from children under 13.
+                You may delete your account at any time. Residual data may remain temporarily in
+                backups.
               </p>
 
-              <h2>8. Changes to This Policy</h2>
+              <h2>6. Your Privacy Rights</h2>
+              <p>Depending on your location, you may have the right to:</p>
+              <ul>
+                <li>Access your personal data</li>
+                <li>Correct inaccurate information</li>
+                <li>Delete your data</li>
+                <li>Restrict or object to processing</li>
+                <li>Withdraw consent</li>
+                <li>Request data portability</li>
+              </ul>
               <p>
-                We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on this page with a revised effective date.
+                You can submit an account deletion request through our{" "}
+                <Link href="/legal/delete-account">Delete account page</Link> or contact us at{" "}
+                <a href="mailto:privacy@milesme.app">privacy@milesme.app</a>.
               </p>
 
-              <h2>9. Contact Us</h2>
+              <h2>7. International Data Transfers</h2>
               <p>
-                If you have questions about this Privacy Policy, please contact us at{" "}
-                <a href="mailto:hello@milesme.app">hello@milesme.app</a>.
+                MilesMe may process data outside your country of residence, including in the United
+                States. When required, we rely on Standard Contractual Clauses or other lawful
+                safeguards for such transfers.
               </p>
+
+              <h2>8. Children&apos;s Privacy</h2>
+              <p>
+                MilesMe is not intended for children under 13, and we do not knowingly collect personal
+                data from children.
+              </p>
+
+              <h2>9. Security</h2>
+              <p>
+                We implement appropriate technical and organisational measures to protect your data.
+                No system is 100% secure, but we work to minimise risks.
+              </p>
+
+              <h2>10. Changes to This Policy</h2>
+              <p>
+                We may update this Policy from time to time. Material changes will be communicated
+                through the app or website.
+              </p>
+
+              <h2>11. Contact Us</h2>
+              <p>If you have questions or requests relating to this Policy, you can contact us at:</p>
+              <ul>
+                <li>
+                  General enquiries:{" "}
+                  <a href="mailto:hello@milesme.app">hello@milesme.app</a>
+                </li>
+                <li>
+                  Support:{" "}
+                  <a href="mailto:support@milesme.app">support@milesme.app</a>
+                </li>
+                <li>
+                  Privacy requests:{" "}
+                  <a href="mailto:privacy@milesme.app">privacy@milesme.app</a>
+                </li>
+                <li>
+                  Legal / contact:{" "}
+                  <a href="mailto:contact@milesme.app">contact@milesme.app</a>
+                </li>
+              </ul>
             </div>
           </section>
 
           {/* ===== TERMS OF SERVICE ===== */}
           <section id="terms-of-service" className={styles.section}>
             <h1 className={styles.sectionTitle}>Terms of Service</h1>
-            <p className={styles.effectiveDate}>Effective: February 2025</p>
+            <p className={styles.effectiveDate}>Effective: February 1st, 2026</p>
 
             <div className={styles.prose}>
               <p>
-                Welcome to MilesMe. By accessing or using our website and services, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.
+                These Terms of Service (&quot;Terms&quot;) govern your access to and use of the MilesMe mobile
+                applications, websites, software, and related services (collectively, the &quot;Services&quot;).
+                MilesMe is operated by Vanta Labs S.L., a company registered in Spain with its registered
+                office in Barcelona (&quot;Vanta Labs&quot;, &quot;MilesMe&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). By accessing or using
+                the Services, you agree to be bound by these Terms. If you do not agree, do not use the
+                Services.
               </p>
 
-              <h2>1. About MilesMe</h2>
+              <h2>1. Agreement</h2>
               <p>
-                MilesMe is a route discovery platform that helps runners and walkers find loop routes tailored to their distance, terrain, and preferences. Our service is currently in pre-launch and available via waitlist sign-up.
+                These Terms form a legally binding agreement between you and Vanta Labs S.L. If you
+                access or use the Services on behalf of an organisation, you represent that you have
+                authority to bind that organisation to these Terms.
               </p>
 
-              <h2>2. Eligibility</h2>
+              <h2>2. Eligibility &amp; Accounts</h2>
+              <h3>Age Requirement</h3>
               <p>
-                You must be at least 13 years old to use MilesMe. By using our services, you represent that you meet this requirement.
+                You must be at least 13 years old (or older if required by local law) to use MilesMe. If you
+                are under the legal age to enter into a binding contract, you may only use the Services with
+                the consent of a parent or legal guardian.
               </p>
-
-              <h2>3. User Accounts</h2>
+              <h3>Account Registration</h3>
               <p>
-                When our app launches, you may need to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account.
+                To use certain features, you must create an account. You agree to provide accurate and
+                current information, maintain only one personal account, keep your login credentials secure,
+                and accept responsibility for all activity under your account. We may suspend or terminate
+                accounts that violate these Terms.
               </p>
 
-              <h2>4. Acceptable Use</h2>
-              <p>You agree not to:</p>
+              <h2>3. Services Overview</h2>
+              <p>MilesMe provides tools to:</p>
               <ul>
-                <li>Use the service for any unlawful purpose</li>
-                <li>Attempt to gain unauthorised access to our systems</li>
-                <li>Submit false or misleading information</li>
-                <li>Interfere with the proper functioning of the service</li>
-                <li>Scrape, crawl, or harvest data from our platform</li>
+                <li>Generate routes for walking, running, or cycling</li>
+                <li>Display maps, elevation, distance, and time estimates</li>
+                <li>Record and review activity data</li>
+              </ul>
+              <p>MilesMe does not guarantee:</p>
+              <ul>
+                <li>Route safety</li>
+                <li>Traffic conditions</li>
+                <li>Surface quality</li>
+                <li>Weather accuracy</li>
+                <li>That routes are suitable for your skill level or health</li>
               </ul>
 
-              <h2>5. Route Information</h2>
+              <h2>4. Subscriptions &amp; Payments</h2>
+              <h3>Free and Paid Features</h3>
               <p>
-                Routes provided by MilesMe are for informational purposes only. We do not guarantee the safety, accuracy, or suitability of any route. Always exercise caution and use your own judgement when following any route. Check local conditions, weather, and your own fitness level before heading out.
+                Some features are available for free. Other features require a paid subscription. We may
+                modify, add, or remove features at any time.
+              </p>
+              <h3>Billing &amp; Auto-Renewal</h3>
+              <p>
+                Subscriptions are billed on a recurring basis (for example, monthly or annually) and renew
+                automatically unless cancelled at least 24 hours before the end of the billing period.
+                Payments are processed through the Apple App Store or Google Play. We do not store full
+                payment details.
+              </p>
+              <h3>Cancellation &amp; Refunds</h3>
+              <p>
+                You may cancel your subscription at any time via your app store account. Access to paid
+                features continues until the end of the current billing period. Refunds are handled by Apple
+                or Google in accordance with their policies and applicable law.
               </p>
 
-              <h2>6. Intellectual Property</h2>
+              <h2>5. Beta &amp; Experimental Features</h2>
               <p>
-                All content, design, code, and branding on MilesMe are owned by us or our licensors. You may not copy, modify, or distribute our content without prior written permission.
+                Some features may be labelled as beta or experimental. These are provided &quot;as is&quot;, may
+                change, and may contain errors. Use of beta or experimental features is at your own risk.
               </p>
 
-              <h2>7. User Content</h2>
+              <h2>6. User Content &amp; Data</h2>
               <p>
-                When our platform launches, users may be able to submit route ratings, reviews, and feedback. By submitting content, you grant MilesMe a non-exclusive, worldwide licence to use, display, and distribute that content in connection with our services.
+                You retain ownership of content you create or upload (such as activities or preferences).
+                You grant MilesMe a limited, non-exclusive licence to use this content solely to provide and
+                improve the Services, in accordance with our Privacy Policy.
               </p>
 
-              <h2>8. Limitation of Liability</h2>
+              <h2>7. Acceptable Use</h2>
+              <p>You agree not to:</p>
+              <ul>
+                <li>Use the Services for any unlawful purpose</li>
+                <li>Interfere with or compromise system integrity or security</li>
+                <li>Reverse engineer, scrape, or attempt to extract data from the Services</li>
+                <li>Submit false, misleading, or fraudulent information or activities</li>
+                <li>Use automated systems or software to access the Services without permission</li>
+              </ul>
+
+              <h2>8. Safety Disclaimer</h2>
               <p>
-                To the fullest extent permitted by law, MilesMe shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the service, including but not limited to personal injury, property damage, or loss of data.
+                MilesMe provides planning and visualisation tools only. Outdoor activities carry inherent
+                risks, and routes may pass through unsafe or restricted areas or be affected by changing
+                conditions. You are solely responsible for your safety, obeying local laws, assessing route
+                suitability, and exercising appropriate judgement. MilesMe is not a navigation authority,
+                safety service, or emergency service.
               </p>
 
-              <h2>9. Disclaimer of Warranties</h2>
+              <h2>9. Health Disclaimer</h2>
               <p>
-                MilesMe is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not warrant that the service will be uninterrupted, error-free, or completely secure.
+                MilesMe does not provide medical advice. Any calorie estimates, pace estimates, or
+                performance insights are informational only and should not replace professional medical
+                advice. Consult a physician before beginning any new physical activity.
               </p>
 
-              <h2>10. Termination</h2>
+              <h2>10. Intellectual Property</h2>
               <p>
-                We reserve the right to suspend or terminate your access to MilesMe at our discretion, without notice, for conduct that we believe violates these Terms or is harmful to other users or us.
+                The MilesMe name, logo, software, and design are owned by Vanta Labs S.L. or its
+                licensors. You may not copy, modify, distribute, or exploit any part of the Services without
+                our prior written permission.
               </p>
 
-              <h2>11. Changes to These Terms</h2>
+              <h2>11. Third-Party Services</h2>
               <p>
-                We may revise these Terms from time to time. Continued use of MilesMe after changes constitutes acceptance of the revised Terms. We will notify you of material changes.
+                The Services may integrate with third-party platforms (for example, Apple Health or mapping
+                providers). We are not responsible for third-party services, their data accuracy, or their
+                availability. Your use of third-party services is subject to their own terms and policies.
               </p>
 
-              <h2>12. Governing Law</h2>
+              <h2>12. Termination</h2>
               <p>
-                These Terms are governed by and construed in accordance with the laws of the United Kingdom. Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales.
+                We may suspend or terminate your access to the Services if you violate these Terms, for
+                legal or security reasons, or if required by law. You may delete your account at any time.
               </p>
 
-              <h2>13. Contact Us</h2>
+              <h2>13. Disclaimer of Warranties</h2>
               <p>
-                If you have questions about these Terms, please contact us at{" "}
-                <a href="mailto:hello@milesme.app">hello@milesme.app</a>.
+                THE SERVICES ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot;. WE DISCLAIM ALL WARRANTIES,
+                EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+                AND ACCURACY. We do not warrant that the Services will be uninterrupted, error-free, or
+                completely secure.
               </p>
+
+              <h2>14. Limitation of Liability</h2>
+              <p>
+                To the maximum extent permitted by law, Vanta Labs S.L. shall not be liable for any
+                indirect, incidental, special, or consequential damages arising out of or in connection with
+                your use of the Services. Our total liability for any claim will not exceed the greater of
+                €50 or the amount you paid for the Services in the last 12 months.
+              </p>
+
+              <h2>15. Indemnification</h2>
+              <p>
+                You agree to indemnify and hold harmless Vanta Labs S.L. from and against any claims,
+                liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or
+                in connection with your use of the Services, your activities, or your violation of these Terms
+                or applicable laws.
+              </p>
+
+              <h2>16. Governing Law &amp; Disputes</h2>
+              <p>
+                For users in the European Union, these Terms are governed by Spanish law and disputes
+                shall be resolved by the courts of Spain, without prejudice to mandatory consumer
+                protections. For users outside the EU, disputes are governed by Spanish law unless local
+                consumer laws require otherwise.
+              </p>
+
+              <h2>17. Changes to the Services or Terms</h2>
+              <p>
+                We may modify the Services or these Terms at any time. If changes are material, we will
+                provide notice through the Services or other appropriate means. Continued use of the
+                Services after changes take effect constitutes acceptance of the updated Terms.
+              </p>
+
+              <h2>18. Contact</h2>
+              <p>If you have questions about these Terms, you can contact us at:</p>
+              <ul>
+                <li>
+                  General and legal contact:{" "}
+                  <a href="mailto:contact@milesme.app">contact@milesme.app</a>
+                </li>
+                <li>
+                  Support:{" "}
+                  <a href="mailto:support@milesme.app">support@milesme.app</a>
+                </li>
+              </ul>
             </div>
           </section>
         </main>

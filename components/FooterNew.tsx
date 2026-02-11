@@ -29,17 +29,18 @@ export function FooterNew() {
               <nav className={styles.linkList}>
                 <Link href="/legal#privacy-policy" className={styles.link}>Privacy Policy</Link>
                 <Link href="/legal#terms-of-service" className={styles.link}>Terms of Service</Link>
+                <Link href="/legal/delete-account" className={styles.link}>Delete account</Link>
               </nav>
             </div>
 
-            <div className={styles.linkColumn}>
+            {/* <div className={styles.linkColumn}>
               <h4 className={styles.linkHeading}>Connect</h4>
               <nav className={styles.linkList}>
                 <a href="mailto:hello@milesme.app" className={styles.link}>Contact</a>
                 <a href="https://instagram.com/milesme" target="_blank" rel="noopener noreferrer" className={styles.link}>Instagram</a>
                 <a href="https://x.com/milesme" target="_blank" rel="noopener noreferrer" className={styles.link}>X</a>
               </nav>
-            </div>
+            </div> */}
           </div>
         </div>
 

@@ -3,7 +3,8 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: var(--z-index--layout);
+  /* Ensure nav always sits above page content on mobile */
+  z-index: 1000;
   transition: background-color var(--transition-duration--base) var(--transition-timing--base),
               backdrop-filter var(--transition-duration--base) var(--transition-timing--base),
               box-shadow var(--transition-duration--base) var(--transition-timing--base);
@@ -83,13 +84,16 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 44px;
-  height: 44px;
+  /* width: 44px;
+  height: 44px; */
   padding: 0;
   background: none;
-  border: none;
+  /* border: none; */
+  /* border: 1px solid rgba(255, 255, 255, 1); */
+  /* background: rgba(255, 255, 255, 1); */
   cursor: pointer;
-  z-index: 2;
+  /* Make sure the hamburger sits above the full-screen menu and hero content */
+  z-index: 1100;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -97,7 +101,7 @@
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--color--cream-500);
+  background: rgba(255, 255, 255, 1);
   border-radius: 2px;
   transition: transform var(--transition-duration--base) var(--transition-timing--base),
               opacity var(--transition-duration--base) var(--transition-timing--base);

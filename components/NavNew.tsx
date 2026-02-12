@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import styles from "./NavNew.module.css";
 
 export function NavNew({ forceScrolled = false }: { forceScrolled?: boolean }) {
@@ -56,9 +57,7 @@ export function NavNew({ forceScrolled = false }: { forceScrolled?: boolean }) {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMenuOpen}
         >
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
+          {isMenuOpen ? <X size={32} color="rgba(255, 255, 255, 1)" /> : <Menu size={32} color="rgba(255, 255, 255, 1)" />}
         </button>
 
         <div className={`${styles.menu} ${isMenuOpen ? styles.menuVisible : ""}`}>

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { NavNew } from "@/components/NavNew";
 import { submitDeleteRequest, type DeleteRequestResult } from "./actions";
@@ -14,7 +15,7 @@ function SubmitButton() {
   return (
     <button
       type="submit"
-      className={styles.submitButton}
+      className={`button button--primary ${styles.submitButton}`}
       disabled={pending}
     >
       <span className={styles.buttonLabel}>
@@ -26,9 +27,53 @@ function SubmitButton() {
 
 export default function DeleteAccountPage() {
   const [state, formAction] = useFormState(submitDeleteRequest, initialState);
+  const [toast, setToast] = useState<null | { type: "success" | "error"; message: string }>(
+    null
+  );
+  const toastTimerRef = useRef<number | null>(null);
+  const hasSubmittedRef = useRef(false);
 
   const emailError = !state.success && state.fieldErrors?.email;
   const reasonError = !state.success && state.fieldErrors?.reason;
+
+  useEffect(() => {
+    if (!hasSubmittedRef.current) return;
+
+    if (state.success) {
+      setToast({
+        type: "success",
+        message: "Delete request submitted.",
+      });
+      return;
+    }
+
+    if (!state.success && state.error) {
+      setToast({
+        type: "error",
+        message: state.error,
+      });
+    }
+  }, [state]);
+
+  useEffect(() => {
+    if (!toast) return;
+
+    if (toastTimerRef.current) {
+      window.clearTimeout(toastTimerRef.current);
+    }
+
+    toastTimerRef.current = window.setTimeout(() => {
+      setToast(null);
+      toastTimerRef.current = null;
+    }, 4000);
+
+    return () => {
+      if (toastTimerRef.current) {
+        window.clearTimeout(toastTimerRef.current);
+        toastTimerRef.current = null;
+      }
+    };
+  }, [toast]);
 
   return (
     <div className={styles.page}>
@@ -79,7 +124,14 @@ export default function DeleteAccountPage() {
             </div>
           )}
 
-          <form action={formAction} className={styles.form} noValidate>
+          <form
+            action={formAction}
+            className={styles.form}
+            noValidate
+            onSubmit={() => {
+              hasSubmittedRef.current = true;
+            }}
+          >
             <div className={styles.fieldGroup}>
               <div className={styles.labelRow}>
                 <label htmlFor="email" className={styles.label}>
@@ -135,6 +187,26 @@ export default function DeleteAccountPage() {
           </form>
         </div>
       </div>
+
+      {toast && (
+        <div
+          className={`${styles.toast} ${
+            toast.type === "success" ? styles.toastSuccess : styles.toastError
+          }`}
+          role="status"
+          aria-live="polite"
+        >
+          {toast.message}
+          <button
+            type="button"
+            className={styles.toastClose}
+            onClick={() => setToast(null)}
+            aria-label="Dismiss notification"
+          >
+            ×
+          </button>
+        </div>
+      )}
     </div>
   );
 }

@@ -7,6 +7,7 @@ import styles from "./NavNew.module.css";
 export function NavNew({ forceScrolled = false }: { forceScrolled?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(forceScrolled);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +29,19 @@ export function NavNew({ forceScrolled = false }: { forceScrolled?: boolean }) {
       document.body.style.overflow = "";
     };
   }, [isMenuOpen]);
+
+  // Track viewport size so hamburger is only rendered on mobile
+  useEffect(() => {
+    const updateIsMobile = () => {
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth <= 768);
+      }
+    };
+
+    updateIsMobile();
+    window.addEventListener("resize", updateIsMobile);
+    return () => window.removeEventListener("resize", updateIsMobile);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -51,14 +65,16 @@ export function NavNew({ forceScrolled = false }: { forceScrolled?: boolean }) {
         </div>
 
         {/* Hamburger — mobile only */}
-        <button
-          className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ""}`}
-          onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          aria-expanded={isMenuOpen}
-        >
-          {isMenuOpen ? <X size={32} color="rgba(255, 255, 255, 1)" /> : <Menu size={32} color="rgba(255, 255, 255, 1)" />}
-        </button>
+        {isMobile && (
+          <button
+            className={`${styles.hamburger} ${isMenuOpen ? styles.hamburgerActive : ""}`}
+            onClick={toggleMenu}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMenuOpen}
+          >
+            {isMenuOpen ? <X size={32} color="rgba(255, 255, 255, 1)" /> : <Menu size={32} color="rgba(255, 255, 255, 1)" />}
+          </button>
+        )}
 
         <div className={`${styles.menu} ${isMenuOpen ? styles.menuVisible : ""}`}>
           <button onClick={() => scrollToSection("how-it-works")} className={styles.navLink}>

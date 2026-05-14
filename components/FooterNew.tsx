@@ -30,6 +30,7 @@ export function FooterNew() {
                 <Link href="/legal#privacy-policy" className={styles.link}>Privacy Policy</Link>
                 <Link href="/legal#terms-of-service" className={styles.link}>Terms of Service</Link>
                 <Link href="/legal/delete-account" className={styles.link}>Delete account</Link>
+                <a href="mailto:support@milesme.app" className={styles.link}>Support</a>
               </nav>
             </div>
 

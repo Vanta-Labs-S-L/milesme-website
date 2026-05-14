@@ -115,7 +115,7 @@
 
 .stepsTrack {
   position: relative;
-  min-height: 240px;
+  height: 240px;
 }
 
 .stepContent {
@@ -476,23 +476,14 @@
 @media (prefers-reduced-motion: reduce) {
   .stepContent {
     transition: none;
-    opacity: 1;
-    transform: none;
   }
 
   .stepContent.stepExited {
-    opacity: 1;
-    transform: none;
-  }
-
-  .stepsTrack {
     transition: none;
   }
 
-  .phoneScreen {
-    transition: none;
-  }
-
+  .stepsTrack,
+  .phoneScreen,
   .progressFill {
     transition: none;
   }

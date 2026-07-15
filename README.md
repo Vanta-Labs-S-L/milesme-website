@@ -25,9 +25,10 @@ Create a `.env.local` file:
 ```
 NEXT_PUBLIC_SUPABASE_URL=<your-supabase-project-url>
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<your-supabase-anon-key>
+SLACK_WAITLIST_WEBHOOK_URL=<your-slack-incoming-webhook-url>
 ```
 
-Get these from your Supabase project dashboard. The waitlist table schema is in `supabase/migrations/001_create_waitlist.sql`.
+Get the Supabase values from your project dashboard. The waitlist table schema is in `supabase/migrations/001_create_waitlist.sql`.
 
 ## Scripts
 
@@ -44,10 +45,10 @@ Deploy to Vercel (or any platform that supports Next.js). Set the environment va
 
 ## Routes
 
-| Route | Description |
-|-------|-------------|
-| `/` | Landing page (hero, how it works, features, waitlist, footer) |
-| `/legal` | Privacy Policy and Terms of Service |
+| Route    | Description                                                   |
+| -------- | ------------------------------------------------------------- |
+| `/`      | Landing page (hero, how it works, features, waitlist, footer) |
+| `/legal` | Privacy Policy and Terms of Service                           |
 
 ## Project Structure
 
@@ -62,9 +63,18 @@ public/images/      Static assets
 supabase/           Database migrations
 ```
 
+## Waitlist
+
+The waitlist form (`components/WaitlistNew.tsx`) submits to the `joinWaitlist`
+server action in `app/(public)/actions.ts`, which inserts the email into the
+Supabase `waitlist` table. Duplicate emails are treated as success (so we don't
+reveal who has already signed up). When `SLACK_WAITLIST_WEBHOOK_URL` is set,
+each new signup posts a Slack notification. Only authenticated users can read
+the table (per RLS in `001_create_waitlist.sql`); query it from the Supabase
+dashboard to get the list of addresses to email.
+
 ## TODO / Known Limitations
 
-- **Waitlist form is frontend-only.** The submit handler currently simulates success with a timeout. Before launch, wire it up to Supabase (`supabase.from("waitlist").insert(...)`) to actually capture email submissions. The migration and Supabase client helpers are already in place.
 - Images in `public/images/` are unoptimized originals. Consider using Next.js `<Image>` with proper sizing before launch.
 
 ## Reference Docs
